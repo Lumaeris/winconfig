@@ -78,11 +78,13 @@ actions:
 
   - !appx: {name: '*MicrosoftTeams*', type: family}
   - !appx: {name: '*Clipchamp*', type: family}
-  - !appx: {name: '*WindowsTerminal*', type: family}
+#  - !appx: {name: '*WindowsTerminal*', type: family}
 
   - !appx: {name: '*Global.IrisService*', type: app}
   - !appx: {name: '*Global.Accounts*', type: app}
   - !appx: {name: '*Global.ValueBanner*', type: app}
+
+  - !appx: {name: '*QuickAssist*', type: family}
 
   - !appx: {name: '*Client.CBS*', operation: clearCache}
   - !appx: {name: '*StartMenuExperienceHost*', operation: clearCache}

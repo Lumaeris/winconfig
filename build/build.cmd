@@ -16,4 +16,4 @@ if (Get-Command "NanaZipC.exe" -ErrorAction SilentlyContinue) {
 	exit 1
 }
 
-& $cmd "a" "-pmalte" "-t7z" "-m0=lzma" "-mx=9" "-mfb=64" "-md=32m" "-ms=on" "winconfig-0.5+lumaeris.1.apbx" "../src/*"
+& $cmd "a" "-pmalte" "-t7z" "-m0=lzma2" "-mx=9" "-mfb=64" "-md=32m" "-ms=on" "winconfig-0.5+lumaeris.1.apbx" "../src/*"

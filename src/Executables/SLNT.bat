@@ -8,7 +8,7 @@ for /f "usebackq tokens=2 delims=\" %%A in (`reg query "HKEY_USERS" ^| findstr /
 
 @echo ON
 
-OpenShellSetup_4_4_189.exe /qn /quiet ADDLOCAL=StartMenu
+OpenShellSetup_4_4_191.exe /qn /quiet ADDLOCAL=StartMenu
 
 copy /y Fluent-Metro.skin "%PROGRAMFILES%\Open-Shell\Skins"
 copy /y Fluent-AME.skin7 "%PROGRAMFILES%\Open-Shell\Skins"

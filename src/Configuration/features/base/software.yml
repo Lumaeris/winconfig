@@ -31,7 +31,7 @@ actions:
     cpuArch: "x64"
   - !run:
     exeDir: true
-    exe: "ep_setup-22621.1413.54.5.exe"
+    exe: "ep_setup-22621.1992.56.3.exe"
     weight: 70
     option: "ui"
     cpuArch: "x64"

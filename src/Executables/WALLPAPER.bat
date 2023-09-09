@@ -1,14 +1,14 @@
 
 NSudoLC -U:T -P:E -M:S -Priority:RealTime -UseCurrentConsole -Wait icacls "%WINDIR%\Resources\Themes\aero.theme" /reset /t
-PowerShell -NoP -C "$Content = (Get-Content '%WINDIR%\Resources\Themes\aero.theme'); $Content = $Content -replace 'Wallpaper=%%SystemRoot%%.*', 'Wallpaper=%%SystemRoot%%\web\wallpaper\Windows\ame_wallpaper_4K.bmp'; $Content = $Content -replace 'SystemMode=.*', 'SystemMode=Dark'; $Content -replace 'AppMode=.*', 'AppMode=Light' | Set-Content '%WINDIR%\Resources\Themes\aero.theme'"
+PowerShell -NoP -C "$Content = (Get-Content '%WINDIR%\Resources\Themes\aero.theme'); $Content = $Content -replace 'Wallpaper=%%SystemRoot%%.*', 'Wallpaper=%%SystemRoot%%\web\wallpaper\Windows\wallpaper_4K.bmp'; $Content = $Content -replace 'SystemMode=.*', 'SystemMode=Dark'; $Content -replace 'AppMode=.*', 'AppMode=Light' | Set-Content '%WINDIR%\Resources\Themes\aero.theme'"
 
 @echo OFF
 
-if exist "ame_wallpaper_4K.bmp" (
-	echo move /y "ame_wallpaper_4K.bmp" "%WINDIR%\Web\Wallpaper\Windows"
-	move /y "ame_wallpaper_4K.bmp" "%WINDIR%\Web\Wallpaper\Windows"
-	echo icacls "%WINDIR%\Web\Wallpaper\Windows\ame_wallpaper_4K.bmp" /reset
-	icacls "%WINDIR%\Web\Wallpaper\Windows\ame_wallpaper_4K.bmp" /reset
+if exist "wallpaper_4K.bmp" (
+	echo move /y "wallpaper_4K.bmp" "%WINDIR%\Web\Wallpaper\Windows"
+	move /y "wallpaper_4K.bmp" "%WINDIR%\Web\Wallpaper\Windows"
+	echo icacls "%WINDIR%\Web\Wallpaper\Windows\wallpaper_4K.bmp" /reset
+	icacls "%WINDIR%\Web\Wallpaper\Windows\wallpaper_4K.bmp" /reset
 )
 
 set "RunEC=10"
@@ -63,10 +63,10 @@ if exist "img0.jpg" (
 	move /y "img0.jpg" "%WINDIR%\Web\Wallpaper\Windows\img0.jpg"
 )
 
-if not exist "%WINDIR%\Web\Wallpaper\Windows\ame_wallpaper_4K.bmp" set "wallFail=true" & goto lockScreen
+if not exist "%WINDIR%\Web\Wallpaper\Windows\wallpaper_4K.bmp" set "wallFail=true" & goto lockScreen
 
-echo reg add "HKEY_USERS\%~1\Control Panel\Desktop" /v WallPaper /t REG_SZ /d "%WINDIR%\Web\Wallpaper\Windows\ame_wallpaper_4K.bmp" /f
-reg add "HKEY_USERS\%~1\Control Panel\Desktop" /v WallPaper /t REG_SZ /d "%WINDIR%\Web\Wallpaper\Windows\ame_wallpaper_4K.bmp" /f
+echo reg add "HKEY_USERS\%~1\Control Panel\Desktop" /v WallPaper /t REG_SZ /d "%WINDIR%\Web\Wallpaper\Windows\wallpaper_4K.bmp" /f
+reg add "HKEY_USERS\%~1\Control Panel\Desktop" /v WallPaper /t REG_SZ /d "%WINDIR%\Web\Wallpaper\Windows\wallpaper_4K.bmp" /f
 	if %errorlevel% NEQ 0 set "wallFail=true" & goto lockScreen
 
 del /q /f "%~2\Microsoft\Windows\Themes\TranscodedWallpaper"

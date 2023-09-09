@@ -1,24 +1,12 @@
 @echo off
 
-if exist "%ProgramData%\Scoop\GlobalScoopApps\apps\brave" call :setAssociations & exit /b 0
-if exist "%ProgramFiles%\BraveSoftware\Brave-Browser\Application\brave.exe" call :setAssociations & exit /b 0
+PowerShell -NoP -C "if ((Get-CimInstance Win32_operatingsystem).OSArchitecture -Match 64) {$a = \"BraveBrowserSetup.exe\"} else {$a = \"BraveBrowserSetupArm64.exe\"}; Invoke-WebRequest ((Invoke-RestMethod -Uri 'https://api.github.com/repos/brave/brave-browser/releases/latest' -Method Get | ConvertTo-Json | ConvertFrom-Json).assets | where-object { $_.name -eq $a }).browser_download_url -OutFile \"%TEMP%\\BraveSetup.exe\""
 
-set "PATH=%PATH%;%ProgramData%\Scoop\shims"
-cmd /c "scoop install brave --global"
+cmd /c "%TEMP%\BraveSetup.exe /silent /install"
+
+PowerShell -NoP -C "& .\BRAVEKILLPROC.ps1"
 
 call :setAssociations
-
-if not exist "%ProgramData%\Scoop\GlobalScoopApps\apps\brave" exit /b 0
-
-for /f "usebackq delims=" %%A in (`dir /b "%ProgramData%\Scoop\GlobalScoopApps\apps\brave" /a:d ^| findstr /v /c:"current"`) do set "dir=%ProgramData%\Scoop\GlobalScoopApps\apps\brave\%%A"
-
-mkdir "%ProgramFiles%\BraveSoftware\Brave-Browser"
-ren "%dir%" "Application"
-move /y "%ProgramData%\Scoop\GlobalScoopApps\apps\brave\Application" "%ProgramFiles%\BraveSoftware\Brave-Browser"
-rmdir /q /s "%ProgramData%\Scoop\GlobalScoopApps\apps\brave"
-
-cmd /c "scoop uninstall brave --global"
-del /q /f "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\Brave.lnk"
 
 set "dir=%ProgramFiles%\BraveSoftware\Brave-Browser\Application"
 

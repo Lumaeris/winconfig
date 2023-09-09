@@ -311,9 +311,9 @@ actions:
     weight: 20
     option: "software"
     
-  - !writeStatus: {status: 'Installing Microsoft Visual C++ Redistributable Runtimes', option: "software"}
+  - !writeStatus: {status: 'Installing Microsoft Visual C\+\+ Redistributables', option: "software"}
   - !powerShell: {command: "$a = Invoke-RestMethod -Uri https://api.github.com/repos/abbodi1406/vcredist/releases/latest -Method Get | Select-Object -ExpandProperty assets | Select-Object -ExpandProperty browser_download_url; Invoke-WebRequest $a[1] -OutFile \"$env:TEMP\\vcredist.exe\"" }
-  - !cmd: {command: 'call "%temp%\vcredist.exe" /ai /gm2 & del "%temp%\vcredist.exe"', weight: 200}
+  - !cmd: {command: 'call "%temp%\vcredist.exe" /ai & del "%temp%\vcredist.exe"', weight: 200}
 
   - !writeStatus: {status: 'Installing DirectX 9', option: "software"}
   - !run:

@@ -12,7 +12,7 @@ icacls "$env:ProgramData\Scoop" /grant Users:F /t | Out-Null
 
 scoop install git --global
 scoop bucket add extras
-scoop install windows-terminal --global
+#scoop install windows-terminal --global
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 $forwardData = $env:ProgramData.Replace('\','/')
 git config --global --add safe.directory "$forwardData/Scoop/buckets/extras"

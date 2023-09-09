@@ -26,6 +26,10 @@ reg add "HKU\%~1\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}\InprocServer32" /t
 :: Old Explorer Search
 reg add "HKU\%~1\CLSID\{1d64637d-31e9-4b06-9124-e83fb178ac6e}" /f
 reg add "HKU\%~1\CLSID\{1d64637d-31e9-4b06-9124-e83fb178ac6e}\TreatAs" /t REG_SZ /d "{64bc32b5-4eec-4de7-972d-bd8bd0324537}" /f
+
+:: Taskbar Small Icons and Taskbar on the right side
+reg add "HKU\%~1\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarSmallIcons" /t REG_DWORD /D 1 /f
+reg add "HKU\%~1\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3" /v "Settings" /t REG_BINARY /D "30000000feffffff02800000020000003e00000028000000420400000000000080040000600300006000000001000000" /f
 @echo OFF
 exit /b 0
 
@@ -35,7 +39,7 @@ exit /b 0
 reg add "HKU\%~1\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Start_ShowClassicMode" /t REG_DWORD /D 1 /f
 
 reg add "HKU\%~1\SOFTWARE\ExplorerPatcher" /f
-reg add "HKU\%~1\SOFTWARE\ExplorerPatcher" /v "OldTaskbar" /t REG_DWORD /D 0 /f
+reg add "HKU\%~1\SOFTWARE\ExplorerPatcher" /v "OldTaskbar" /t REG_DWORD /D 1 /f
 reg add "HKU\%~1\SOFTWARE\ExplorerPatcher" /v "UpdatePolicy" /t REG_DWORD /D 2 /f
 reg add "HKU\%~1\SOFTWARE\ExplorerPatcher" /v "EnableSymbolDownload" /t REG_DWORD /D 0 /f
 reg add "HKU\%~1\SOFTWARE\ExplorerPatcher" /v "HideControlCenterButton" /t REG_DWORD /D 1 /f

@@ -25,7 +25,6 @@ actions:
   - !appx: {name: '*StorePurchaseApp*', type: family}
 
   - !appx: {name: '*MicrosoftOfficeHub*', type: family}
-#  - !appx: {name: '*Paint*', type: family}
   - !appx: {name: '*wallet*', type: family}
   - !appx: {name: '*OneNote*', type: family}
   - !appx: {name: '*Microsoft.People*', type: family}
@@ -38,7 +37,6 @@ actions:
   - !appx: {name: '*WindowsSoundRecorder*', type: family}
   - !appx: {name: '*windowscommunicationsapps*', type: family}
   - !appx: {name: '*zune*', type: family}
-#  - !appx: {name: '*WindowsCalculator*', type: family}
   - !appx: {name: '*WindowsMaps*', type: family}
   - !appx: {name: '*Sway*', type: family}
   - !appx: {name: '*CommsPhone*', type: family}
@@ -67,7 +65,6 @@ actions:
   - !appx: {name: '*MicrosoftEdge*', type: family}
 
   - !appx: {name: '*OneDrive*', type: family}
-#  - !appx: {name: '*DesktopAppInstaller*', type: family}
   - !appx: {name: '*PeopleExperienceHost*', type: family}
   - !appx: {name: '*Parental*', type: family}
   - !appx: {name: '*CloudExperienceHost*', type: family}
@@ -78,7 +75,6 @@ actions:
 
   - !appx: {name: '*MicrosoftTeams*', type: family}
   - !appx: {name: '*Clipchamp*', type: family}
-#  - !appx: {name: '*WindowsTerminal*', type: family}
 
   - !appx: {name: '*Global.IrisService*', type: app}
   - !appx: {name: '*Global.Accounts*', type: app}
@@ -89,6 +85,3 @@ actions:
   - !appx: {name: '*Client.CBS*', operation: clearCache}
   - !appx: {name: '*StartMenuExperienceHost*', operation: clearCache}
   - !appx: {name: '*Windows.Search*', operation: clearCache}
-
-#  - !appx: {name: 'SystemSettingsExtensions.dll', type: Extension *Client.CBS*}
-#  - !appx: {name: 'SearchUx.InternalWebAPi.dll', type: Extension *Client.CBS*}

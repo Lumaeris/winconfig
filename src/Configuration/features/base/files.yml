@@ -131,14 +131,6 @@ actions:
     ignoreErrors: true
   - !file:
     path: "%windir%\\System32\\OOBE"
-#  - !file:
-#    path: "%windir%\\System32\\SgrmBroker.exe"
-#  - !file:
-#    path: "%windir%\\System32\\SgrmEnclave.dll"
-#  - !file:
-#    path: "%windir%\\System32\\SgrmEnclave_secure.dll"
-#  - !file:
-#    path: "%windir%\\System32\\SgrmLpac.exe"
   - !file:
     path: "%ProgramW6432%\\Windows Security"
   - !file:
@@ -190,10 +182,6 @@ actions:
     path: "%windir%\\System32\\IESettingSync.exe"
   - !file:
     path: "%windir%\\System32\\gamepanel.exe"    
-  #- !FileAction:
-  #  path: "%windir%\\System32\\ClipSVC.dll"
-  #- !FileAction:
-  #  path: "%windir%\\System32\\en-US\\clipsvc.dll.mui"
   - !file:
     path: "%SystemDrive%\\ProgramData\\Microsoft\\Windows\\ClipSVC\\tokens.dat"
   - !file:

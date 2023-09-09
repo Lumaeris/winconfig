@@ -8,7 +8,9 @@ for /f "usebackq tokens=2 delims=\" %%A in (`reg query "HKEY_USERS" ^| findstr /
 
 @echo ON
 
-OpenShellSetup_4_4_191.exe /qn /quiet ADDLOCAL=StartMenu
+PowerShell -NoP -C "$a = Invoke-RestMethod -Uri https://api.github.com/repos/Open-Shell/Open-Shell-Menu/releases/latest -Method Get | Select-Object -ExpandProperty assets | Select-Object -ExpandProperty browser_download_url; Invoke-WebRequest $a[0] -OutFile \"%TEMP%\\openshell.exe\""
+
+cmd /c "%TEMP%\openshell.exe /qn /quiet ADDLOCAL=StartMenu & del %TEMP%\openshell.exe"
 
 copy /y Fluent-Metro.skin "%PROGRAMFILES%\Open-Shell\Skins"
 copy /y Fluent-AME.skin7 "%PROGRAMFILES%\Open-Shell\Skins"

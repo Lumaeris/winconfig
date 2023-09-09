@@ -29,12 +29,8 @@ actions:
     option: "ui"
     weight: 20
     cpuArch: "x64"
-  - !run:
-    exeDir: true
-    exe: "ep_setup-22621.1992.56.3.exe"
-    weight: 70
-    option: "ui"
-    cpuArch: "x64"
+  - !powerShell: {command: "& { Invoke-WebRequest ((Invoke-RestMethod -Uri 'https://api.github.com/repos/valinet/ExplorerPatcher/releases/latest' -Method Get | ConvertTo-Json | ConvertFrom-Json).assets | where-object { $_.name -eq 'ep_setup.exe' }).browser_download_url -OutFile \"$env:TEMP\\ep_setup.exe\" }", option: "ui", cpuArch: "x64"}
+  - !cmd: {command: 'call "%temp%\ep_setup.exe" & del "%temp%\ep_setup.exe"', weight: 70, option: "ui", cpuArch: "x64"}
 
 #   Context Menu
   - !registryValue: {cpuArch: "!x64", option: 'ui', path: 'HKCU\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32', value: '', data: '', type: REG_SZ}
@@ -141,7 +137,7 @@ actions:
     weight: 70
     option: "media-mpv"
 
-  - !writeStatus: {status: 'Installing 7zip', option: "software"}
+  - !writeStatus: {status: 'Installing 7-Zip', option: "software"}
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
@@ -311,7 +307,7 @@ actions:
     weight: 20
     option: "software"
     
-  - !writeStatus: {status: 'Installing Microsoft Visual C\+\+ Redistributables', option: "software"}
+  - !writeStatus: {status: 'Installing vcredist', option: "software"}
   - !powerShell: {command: "$a = Invoke-RestMethod -Uri https://api.github.com/repos/abbodi1406/vcredist/releases/latest -Method Get | Select-Object -ExpandProperty assets | Select-Object -ExpandProperty browser_download_url; Invoke-WebRequest $a[1] -OutFile \"$env:TEMP\\vcredist.exe\"" }
   - !cmd: {command: 'call "%temp%\vcredist.exe" /ai & del "%temp%\vcredist.exe"', weight: 200}
 

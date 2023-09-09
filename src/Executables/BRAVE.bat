@@ -4,7 +4,7 @@ PowerShell -NoP -C "if ((Get-CimInstance Win32_operatingsystem).OSArchitecture -
 
 cmd /c "%TEMP%\BraveSetup.exe /silent /install"
 
-PowerShell -NoP -C "& .\BRAVEKILLPROC.ps1"
+PowerShell -NoP -C "& .\BRAVEPROC.ps1"
 
 call :setAssociations
 

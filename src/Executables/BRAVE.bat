@@ -6,6 +6,8 @@ cmd /c "%TEMP%\BraveSetup.exe /silent /install"
 
 PowerShell -NoP -C "& .\BRAVEPROC.ps1"
 
+cmd /c "del %TEMP%\BraveSetup.exe"
+
 call :setAssociations
 
 set "dir=%ProgramFiles%\BraveSoftware\Brave-Browser\Application"

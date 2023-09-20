@@ -1,6 +1,12 @@
 title: Configuration
 privilege: TrustedInstaller
 actions:
+    # Sync time and set to more reliable time servers
+  - !service: {name: "w32time", operation: start, ignoreErrors: true}
+  - !run: {exe: 'w32tm', args: '/config /syncfromflags:manual /manualpeerlist:"0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org"'}
+  - !run: {exe: 'w32tm', args: '/config /update'}
+  - !run: {exe: 'w32tm', args: '/resync'}
+
   - !writeStatus: {status: 'Cleaning user interface'}
   - !service:
     name: "WpnService"

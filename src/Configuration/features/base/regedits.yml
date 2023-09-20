@@ -293,6 +293,12 @@ actions:
     # Turns off Windows blocking installation of files downloaded from the internet
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments', value: 'SaveZoneInformation', type: REG_DWORD, data: '1'}
       
+    # Hide 'Chat' icon from Settings
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Chat', value: 'ChatIcon', type: REG_DWORD, data: '3'}
+      
+    # Disable opening GameBar when pressing the XBOX button on an XBOX controller
+  - !registryValue: {path: 'HKCU\Software\Microsoft\GameBar', value: 'UseNexusForGameBarEnabled', type: REG_DWORD, data: '0'}
+      
     # Disables SmartScreen
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost', value: 'ContentEvaluation', type: REG_DWORD, data: '0'}
       

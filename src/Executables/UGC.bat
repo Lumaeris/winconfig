@@ -89,6 +89,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\UGC-%RNDStr%" 
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\UGC-%RNDStr%" /v "NoRepair" /t REG_DWORD /d "1" /f
 
 PowerShell -NoP -C "$Content = (Get-Content '%ProgramData%\chocolatey\lib\ungoogled-chromium\tools\chocolateyUninstall.ps1'); $Content = $Content -replace '<Command>', 'Start-Process ''%ProgramData%\chocolatey\tools\ugc_uninstaller.exe'' -Verb RunAs -ArgumentList ''%RNDStr%'',''Choco'' -Wait -ErrorAction Continue' | Set-Content '%ProgramData%\chocolatey\lib\ungoogled-chromium\tools\chocolateyUninstall.ps1'"
+PowerShell -NoP -EP Unrestricted -File "UGCWIDEVINE.ps1"
 
 @echo off
 

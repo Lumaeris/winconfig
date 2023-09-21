@@ -8,8 +8,8 @@ if (Get-Command "NanaZipC.exe" -ErrorAction SilentlyContinue) {
 	$cmd = "nanazipc"
 } elseif (Get-Command "7z.exe" -ErrorAction SilentlyContinue) {
 	$cmd = "7z"
-} elseif ([System.IO.File]::Exists("C:\Program Files\7-Zip\7z.exe")) {
-	$cmd = "C:\Program Files\7-Zip\7z.exe"
+} elseif ([System.IO.File]::Exists("%PROGRAMFILES%\7-Zip\7z.exe")) {
+	$cmd = "%PROGRAMFILES%\7-Zip\7z.exe"
 } else {
 	[console]::error.writeline("This script is only adapted for use with 7-Zip or NanaZip installed.")
     pause

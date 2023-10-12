@@ -311,8 +311,8 @@ actions:
   - !powerShell: {command: "$a = Invoke-RestMethod -Uri https://api.github.com/repos/abbodi1406/vcredist/releases/latest -Method Get | Select-Object -ExpandProperty assets | Select-Object -ExpandProperty browser_download_url; Invoke-WebRequest $a[1] -OutFile \"$env:TEMP\\vcredist.exe\"", option: "software"}
   - !cmd: {command: 'call "%temp%\vcredist.exe" /ai /gm2 & del "%temp%\vcredist.exe"', weight: 200, option: "software"}
 
-  - !writeStatus: {status: 'Installing DirectX End-User Runtime', option: "software"}
-  - !powerShell: {command: "Invoke-WebRequest https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe -OutFile \"$env:TEMP\\dxsetup.exe\"", option: "software"}
+  - !writeStatus: {status: 'Installing DirectX', option: "software"}
+  - !powerShell: {command: "Invoke-WebRequest https://download.microsoft.com/download/8/4/A/84A35BF1-DAFE-4AE8-82AF-AD2AE20B6B14/directx_Jun2010_redist.exe -OutFile \"$env:TEMP\\dxsetup.exe\"", option: "software"}
   - !cmd: {command: 'call "%temp%\dxsetup.exe" /Q & del "%temp%\dxsetup.exe"', weight: 150, option: "software"}
 
   - !writeStatus: {status: 'Installing OnlyOffice', option: "office-onlyoffice"}

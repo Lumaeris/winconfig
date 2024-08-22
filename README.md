@@ -1,5 +1,7 @@
 # winconfig [WIP]
 
+## TODO: Rebase this repo as a fork of [AME11 on GitHub](https://github.com/Ameliorated-LLC/AME-11)
+
 My configuration of Windows 11. You may tell it is .dotfiles for Windows, but at the same time it is not. Based on [AME11](https://git.ameliorated.info/Styris/AME-11) work.
 
 ![](img/screenshot_amecs.png)
